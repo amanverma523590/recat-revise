@@ -125,38 +125,109 @@
 //     </div>
 //   )
 // }
+// -----------------------------------------------
+// -------Array of object---------------------
 
-export function DataBinding() {
+// export function DataBinding() {
 
-  var menu = [
-    {
-      Category : "Electronics",
-      Products : ["Television","Mobile","Laptop"]
-    },
-    {
-      Category : "Fashion",
-      Products : ["Shirt","Pant","Coat"]
-    }
-  ]
+//   var menu = [
+//     {
+//       Category : "Electronics",
+//       Products : ["Television","Mobile","Laptop"]
+//     },
+//     {
+//       Category : "Fashion",
+//       Products : ["Shirt","Pant","Coat"]
+//     }
+//   ]
 
-  return (
+//   return (
+//     <div>
+//       <ol>
+//         {
+//           menu.map((items)=>(
+//             <li key={items.Category}>{items.Category}
+//               <ul>
+//                 {
+//                   items.Products.map((product)=>(
+//                     <li key={product}>{product}</li>
+//                   ))
+//                 }
+//               </ul>
+//             </li>
+//           ))
+//         }
+//       </ol>
+
+//     </div>
+//   );
+// }
+
+// -------------------------------------------
+
+
+// export function DataBinding() {
+ 
+//   var iccTable = [
+//     { Team: "India", Matches : 10, Win : 5, Lost : 5, PTS: 25, NRR: "+2.48",
+//        Flag: "/assets/india.png" },
+//     { Team: "Nepal", Matches : 9, Win : 7, Lost : 2, PTS: 32, NRR: "+4.72",
+//        Flag: "/assets/nepal.png" },
+//     { Team: "Australia", Matches : 8, Win : 3, Lost : 5, PTS: 19, NRR: "+0.56",
+//        Flag: "/assets/australia.png" }
+//   ]
+
+//   return (
+//     <div>
+//       <h1>World Cup Table</h1>
+
+//       <table className="table table-striped table-hover w-50">
+//         <thead>
+//           <tr>
+//             <th>Team</th>
+//             <th>Matches</th>
+//             <th>Win</th>
+//             <th>Lost</th>
+//             <th>PTS</th>
+//             <th>NRR</th>
+//           </tr>
+//         </thead>
+
+//         <tbody>
+//           {
+//             iccTable.map(( country )=>(
+//               <tr key={country.Team}>
+//                 <td> <img src={country.Flag} alt="no img" width='30' height='25'/> {country.Team}</td>
+//                 <td>{country.Matches}</td>
+//                 <td>{country.Win}</td>
+//                 <td>{country.Lost}</td>
+//                 <td>{country.PTS}</td>
+//                 <td>{country.NRR}</td>
+//               </tr>
+//             ))
+//           }
+          
+//         </tbody>
+
+//       </table>
+
+//     </div>
+//   );
+// }
+
+export function DataBinding(){
+
+  let departure = new Date();
+  let month = [ "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return(
     <div>
-      <ol>
-        {
-          menu.map((items)=>(
-            <li key={items.Category}>{items.Category}
-              <ul>
-                {
-                  items.Products.map((product)=>(
-                    <li key={product}>{product}</li>
-                  ))
-                }
-              </ul>
-            </li>
-          ))
-        }
-      </ol>
-
+      Departure :
+       {days[departure.getDay()]},
+       {departure.getDate()},
+       {month[departure.getMonth()]},
+       {departure.getFullYear()}
     </div>
-  );
+  )
 }
