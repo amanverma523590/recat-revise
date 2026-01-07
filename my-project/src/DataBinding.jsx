@@ -34,7 +34,7 @@
 //       </div>
 
 //     {/* unorderlist */}
-    
+
 //         <ul>
 //         {
 //             categories.map((cb)=>(
@@ -76,51 +76,87 @@
 //             </tbody>
 //         </table>
 
-           
-
 //     </div>
 //   );
 // }
-  
 
-export function DataBinding(){
+// -----------------------------------------------------------------------
 
-  var product = {
-    Name : "Samsung Tv",
-    Price : 43700,
-    Stock : true,
-    Cities : ['Banglore','Delhi','Hydrabad'],
-    Rating : {Rate : 4.2, Count : 500}
-  };
+// --------------------Object Binding-------------
 
-  return(
+// export function DataBinding(){
+
+//   var product = {
+//     Name : "Samsung Tv",
+//     Price : 43700,
+//     Stock : true,
+//     Cities : ['Banglore','Delhi','Hydrabad'],
+//     Rating : {Rate : 4.2, Count : 500}
+//   };
+
+//   return(
+//     <div>
+//       <h2>Product Detail</h2>
+//       <dl>
+//         <dt>Name</dt>
+//         <dd>{product.Name}</dd>
+//         <dt>Price</dt>
+//         <dd>{product.Price}</dd>
+//         <dt>Stock</dt>
+//         <dd>{ product.Stock==true ? 'Avialable' :' Not Available' }</dd>
+
+//         <dt>Shipped To</dt>
+//         <dd>
+//           <ol>
+//            {
+//              product.Cities.map((city)=>(
+//               <li key={city}>{city}</li>
+//              ))
+//            }
+//           </ol>
+//         </dd>
+
+//         <dt>Rating</dt>
+//         <dd>{product.Rating.Rate}{" "}</dd>
+//         <span className="bi bi-star-fill text-warning"></span>
+//         {product.Rating.Count}
+
+//       </dl>
+//     </div>
+//   )
+// }
+
+export function DataBinding() {
+
+  var menu = [
+    {
+      Category : "Electronics",
+      Products : ["Television","Mobile","Laptop"]
+    },
+    {
+      Category : "Fashion",
+      Products : ["Shirt","Pant","Coat"]
+    }
+  ]
+
+  return (
     <div>
-      <h2>Product Detail</h2>
-      <dl>
-        <dt>Name</dt>
-        <dd>{product.Name}</dd>
-        <dt>Price</dt>
-        <dd>{product.Price}</dd>
-        <dt>Stock</dt>
-        <dd>{ product.Stock==true ? 'Avialable' :' Not Available' }</dd>
+      <ol>
+        {
+          menu.map((items)=>(
+            <li key={items.Category}>{items.Category}
+              <ul>
+                {
+                  items.Products.map((product)=>(
+                    <li key={product}>{product}</li>
+                  ))
+                }
+              </ul>
+            </li>
+          ))
+        }
+      </ol>
 
-        <dt>Shipped To</dt>
-        <dd>
-          <ol>
-           {
-             product.Cities.map((city)=>(
-              <li key={city}>{city}</li>
-             ))
-           }
-          </ol>
-        </dd>
-
-        <dt>Rating</dt>
-        <dd>{product.Rating.Rate}{" "}</dd>
-        <span className="bi bi-star-fill text-warning"></span> 
-        {product.Rating.Count}
-
-      </dl>
     </div>
-  )
+  );
 }
