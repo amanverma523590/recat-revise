@@ -1,6 +1,8 @@
 // export function DataBinding() {
 //   let categories = ["All", "Electronics", "Footware", "Fashion"];
 
+import { useState } from "react"
+
 //   return (
 //     <div className="container-fluid">
 //       {/* Navigation */}
@@ -215,19 +217,34 @@
 //   );
 // }
 
+// export function DataBinding(){
+
+//   let departure = new Date();
+//   let month = [ "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+//   return(
+//     <div>
+//       Departure :
+//        {days[departure.getDay()]},
+//        {departure.getDate()},
+//        {month[departure.getMonth()]},
+//        {departure.getFullYear()}
+//     </div>
+//   )
+// }
+
+
+//Primitive data type
+// 1) Number  
+
 export function DataBinding(){
 
-  let departure = new Date();
-  let month = [ "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const[price] = useState(600000)
 
   return(
     <div>
-      Departure :
-       {days[departure.getDay()]},
-       {departure.getDate()},
-       {month[departure.getMonth()]},
-       {departure.getFullYear()}
+      <h3>Price {price.toLocaleString('en-IN', {style : 'currency', currency:'INR'} )}</h3>
     </div>
   )
 }
