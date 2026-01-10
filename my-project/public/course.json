@@ -1,0 +1,20 @@
+[
+    {
+        "title" : "HTML",
+        "duration" : "1 months",
+        "teacher" : "Aman",
+        "country" : "./assets/nepal.png"
+    },
+        {
+        "title" : "CSS",
+        "duration" : "2 months",
+        "teacher" : "Sanam",
+        "country" : "./assets/india.png"
+    },
+        {
+        "title" : "Js",
+        "duration" : "5 months",
+        "teacher" : "Sahil",
+        "country" : "./assets/australia.png"
+    }
+]

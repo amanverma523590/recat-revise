@@ -325,7 +325,7 @@ export function DataBinding(){
   // }
 //axios
   function GetProduct(){
-    axios.get(`prodct.json`)
+    axios.get(`product.json`)
     .then(response => {
       setProduct(response.data)
     })
