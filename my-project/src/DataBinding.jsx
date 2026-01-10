@@ -1,7 +1,7 @@
 // export function DataBinding() {
 //   let categories = ["All", "Electronics", "Footware", "Fashion"];
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 //   return (
 //     <div className="container-fluid">
@@ -238,13 +238,129 @@ import { useState } from "react"
 //Primitive data type
 // 1) Number  
 
+// export function DataBinding(){
+
+//   const[price] = useState(600000)
+
+//   return(
+//     <div>
+//       <h3>Price {price.toLocaleString('en-IN', {style : 'currency', currency:'INR'} )}</h3>
+//     </div>
+//   )
+// }
+
+
+//2) BOOLEAN TYPE
+
+// import './data.css'
+// export function DataBinding(){
+
+//   const[stock] = useState(false)
+
+//   return(
+//     <div>
+//       <header>
+//         <span>Shopping</span>
+//         {
+//           (sessionStorage.getItem("uname")===null)?
+//           <button>Sign-In</button>:
+//            <span>{sessionStorage.getItem("uname")}<button>Log-Out</button> </span> 
+//         }
+//       </header>
+
+        
+
+//     </div>
+    
+//   )
+// }
+
+
+// undefined type
+
+// export function DataBinding(){
+
+//   // const[price] = useState();
+
+//   const[paisa] = useState(2840023n);
+
+//   return(
+//     <div>
+//       {/* {(price)? price : "price not defined"} */}
+//      <p>paisa : {paisa.toString()}</p>
+//     </div>
+//   )
+// }
+
+//symbol
+
+// export function DataBinding(){
+
+//   let ID = Symbol();
+
+//   const[product] = useState( { [ID]:1, Name : "TV", Price : 45000  } );
+
+//   return(
+//     <div>
+//      {
+//       <p>name{product.Name}</p>
+//      }
+//     </div>
+//   )
+// }
+
+
 export function DataBinding(){
 
-  const[price] = useState(600000)
+  const[product,setProduct] = useState({ title:'', price: 0, rating : { rate:0, ratings: 0,  reviews:0 }, image: null, offers:[] });
+
+  function GetProduct(){
+   fetch(`product.json`)
+   .then(response => response.json())
+   .then(data=>{
+    setProduct(data)
+   })
+  }
+
+  useEffect(()=>{
+    GetProduct();
+  },[])
 
   return(
-    <div>
-      <h3>Price {price.toLocaleString('en-IN', {style : 'currency', currency:'INR'} )}</h3>
+    <div className="container-fluid">
+      <div className="row mt-4">
+
+        <div className="col-3">
+         { product.image ? ( <img src={product.image} alt="no image" width='100%' /> )
+         : ( <div>No image</div> ) }
+        </div>
+
+        <div className="col-9">
+          <div className="fs-4 fw-bold">{product.title}</div>
+          <div className="mt-2"> 
+            <span className="badge bg-success ">{product.rating.rate}</span>
+            <span className="bi bi-star-fill "></span> <span></span>
+            <span className="mx-2 text-secondary fs-6 fw-bold">{product.rating.ratings.toLocaleString()}  ratings & {product.rating.reviews} reviews</span>
+          </div>
+
+          <div className="mt-2">
+            <div className="fs-1 fw-bold"> &#8377; {product.price.toLocaleString('en-IN')}</div>
+          </div>
+
+          <div className="mt-2">
+            <ul className="list-unstyled">
+              {
+                product.offers.map((offer,i)=>(
+                  <li className="bi bi-tag-fill text-success my-2" key={i}>
+                    <span className="text-secondary">{offer}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+        </div>
+      </div>
     </div>
   )
 }
