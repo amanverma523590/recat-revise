@@ -309,17 +309,26 @@ import { useEffect, useState } from "react"
 //   )
 // }
 
+import axios from 'axios'
 
 export function DataBinding(){
 
   const[product,setProduct] = useState({ title:'', price: 0, rating : { rate:0, ratings: 0,  reviews:0 }, image: null, offers:[] });
 
+  //fetch()
+  // function GetProduct(){
+  //  fetch(`product.json`)
+  //  .then(response => response.json())
+  //  .then(data=>{
+  //   setProduct(data)
+  //  })
+  // }
+//axios
   function GetProduct(){
-   fetch(`product.json`)
-   .then(response => response.json())
-   .then(data=>{
-    setProduct(data)
-   })
+    axios.get(`prodct.json`)
+    .then(response => {
+      setProduct(response.data)
+    })
   }
 
   useEffect(()=>{
