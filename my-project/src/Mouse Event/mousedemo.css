@@ -1,0 +1,7 @@
+.col-1 div{
+    border: 2px solid gray;
+}
+.col-1 :hover{
+    border: 2px solid blue;
+    cursor: grab;
+}
