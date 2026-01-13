@@ -2,6 +2,8 @@
 // import axios from 'axios'
 // import './mousedemo.css'
 
+import { useState } from "react"
+
 // export function Mouse() {
 //   const [mobiles, setMobiles] = useState([{ img_src: null }]);
 //   const[previewSrc,setPreviewSrc] = useState('/assets/google.png')
@@ -38,50 +40,73 @@
 //   );
 // }
 
-import { useState } from "react";
-import "./mouseanimation.css";
+// import { useState } from "react";
+// import "./mouseanimation.css";
 
-export function Mouse() {
-  const [animation, setAnimation] = useState({
-    animationName: "spin",
-    animationDuration: "8s",
-    animationIterationCount: "infinite",
-    animationTimingFunction: "linear",
-  });
+// export function Mouse() {
+//   const [animation, setAnimation] = useState({
+//     animationName: "spin",
+//     animationDuration: "8s",
+//     animationIterationCount: "infinite",
+//     animationTimingFunction: "linear",
+//   });
 
-  function handleMouseDown() {
-    setAnimation({
-      animationName: "spin",
-      animationDuration: "1s",
-      animationIterationCount: "infinite",
-      animationTimingFunction: "linear",
-    });
+//   function handleMouseDown() {
+//     setAnimation({
+//       animationName: "spin",
+//       animationDuration: "1s",
+//       animationIterationCount: "infinite",
+//       animationTimingFunction: "linear",
+//     });
+//   }
+//   function handleMouseUp() {
+//     setAnimation({
+//       animationName: "spin",
+//       animationDuration: "8s",
+//       animationIterationCount: "infinite",
+//       animationTimingFunction: "linear",
+//     });
+//   }
+
+//   return (
+//     <div
+//       className="container-fluid d-flex justify-content-center align-items-center "
+//       style={{ height: "100vh", backgroundColor: "gray" }}
+//     >
+//       <div>
+//         <img
+//           src="/assets/iphone.png"
+//           alt="no img"
+//           height={100}
+//           width={100}
+//           onMouseDown={handleMouseDown}
+//           onMouseUp={handleMouseUp}
+//           style={animation}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
+
+export function Mouse(){
+
+  const[styleObj,setStyleObj] = useState( {position:'',top: '', left: ''} );
+
+  function handleMouseMove(e){
+    setStyleObj({
+      position:'absolute',
+      left : e.clientX + 'px',
+      top : e.clientY + 'px'
+    })
   }
-  function handleMouseUp() {
-    setAnimation({
-      animationName: "spin",
-      animationDuration: "8s",
-      animationIterationCount: "infinite",
-      animationTimingFunction: "linear",
-    });
-  }
 
-  return (
-    <div
-      className="container-fluid d-flex justify-content-center align-items-center "
-      style={{ height: "100vh", backgroundColor: "gray" }}
-    >
-      <div>
-        <img
-          src="/assets/iphone.png"
-          alt="no img"
-          height={100}
-          width={100}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          style={animation}
-        />
+  return(
+    <div onMouseMove={handleMouseMove}>
+      <div style={{height:'400px', width:'400px', backgroundColor:'lightgray',display:'flex',justifyContent:'center',alignItems:'center', marginLeft:'300px'}}>
+        Move mouse to test
       </div>
+      <img src="/assets/nepal.png" alt="no img"   height={50} width={50} style={styleObj} />
     </div>
-  );
+  )
 }
