@@ -7,7 +7,8 @@ export function Timer(){
 
     const[msg,setMsg] = useState('Volume 0');
 
-    // let thread2 = useRef(null);
+    let thread2 = useRef(null);
+    let thread3 = useRef(null);
 
     function Level1(){
         setMsg('Volume increased to 20%');
@@ -18,18 +19,23 @@ export function Timer(){
     function Level3(){
         setMsg('Volume increased to 100%');
     }
+    function Level4(){
+        setMsg('Volume increased to 110%');
+    }
+
 
     function handleVolumeUp(){
             setTimeout(Level1,3000);
-            // thread2.current =
-             setInterval(Level2,5000);
-            setTimeout(Level3,10000)
+            thread2.current = setTimeout(Level2,5000);  //iska refernce creent me niakl liya aur sueref me store kar diya beacuse memeory me mujhe uska adrees nahi pata it help in finding
+             thread3.current=  setTimeout(Level3,7000);
+             setTimeout(Level4,10000)
             // Level1();
             // Level2();
             // Level3();
     }
     function handleCancelClick(){
-        clearTimeout(thread2.current)
+        clearTimeout(thread2.current);
+        clearTimeout(thread3.current)
     }
 
     return(
