@@ -1,8 +1,5 @@
 // import { Child } from "./child"
 
-import { useState } from "react";
-import { Child } from "./child";
-
 
 
 // export function Parent(){
@@ -46,20 +43,38 @@ import { Child } from "./child";
 // }
 
 
+// export function Parent(){
+
+//     // let arr = ["aman","sanam","sahil","manish"]
+
+//     const[change,setChange] = useState('aman')
+
+//     return(
+//         <div>
+//            <h1>i am parent</h1>
+//              { change  && <Child name={change}/> }
+//              <button onClick={()=>setChange("sanam")}>update</button>
+//         </div>
+//     )
+// }
+
+
+
+import { Wraper } from "./Wrapper";
 export function Parent(){
 
-    // let arr = ["aman","sanam","sahil","manish"]
-
-    const[change,setChange] = useState('aman')
 
     return(
         <div>
-           <h1>i am parent</h1>
-             { change  && <Child name={change}/> }
-             <button onClick={()=>setChange("sanam")}>update</button>
+            <h1>I am Parent</h1>
+            <Wraper color="red">
+                <h1>hii</h1>
+            </Wraper>
+            <Wraper color="orange">
+                <h1>bye</h1>
+            </Wraper>
         </div>
     )
 }
-
 
 

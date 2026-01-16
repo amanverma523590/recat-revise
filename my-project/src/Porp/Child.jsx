@@ -11,13 +11,22 @@
 //     )
 // }
 
-export function Child({name}){
+// export function Child({name}){
 
+//     console.log(name)
+//     return(
+//         <div>
+//             <h3>student name = {name}</h3>
+
+//         </div>
+//     )
+// }
+
+export function Child({name="_Blank_"}){
     console.log(name)
     return(
         <div>
-            <h3>student name = {name}</h3>
-
+            <h3>i am {name}</h3>
         </div>
     )
 }
