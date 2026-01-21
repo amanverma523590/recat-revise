@@ -14,10 +14,10 @@ export function CustomDemo(){
             <div className="my-3 w-25">
                 <label className="form-label">Select Layout</label>
                 <div>
-                    <select>
+                    <select onChange={handleLayoutChange}>
                         <option>Select Layout</option>
-                        <option value='Grid'>Grid</option>
-                        <option value='Card'>Select Layout</option>
+                        <option value='grid'>grid</option>
+                        <option value='card'>card</option>
                     </select>
                 </div>
             </div>
