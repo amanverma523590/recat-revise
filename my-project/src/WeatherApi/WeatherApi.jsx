@@ -17,7 +17,7 @@ export function WeatherApi(){
 
     return(
         <div className="container-fluid d-flex justify-content-center align-items-center" style={{height:'100vh'}}>
-            <div className="p-4 border border-1 w-50">
+            <div className="p-4 border border-5 w-50">
                 <div className="input-group">
                     <input type="text" onChange={handleTextChange} placeholder="Enter city name" className="form-control" />
                     <button onClick={handleSearchClick} className="btn btn-warning bi bi-search"></button>
