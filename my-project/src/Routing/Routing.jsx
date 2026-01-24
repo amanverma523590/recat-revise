@@ -1,6 +1,8 @@
 import {BrowserRouter, Link,Route,Routes} from 'react-router-dom'
 import { Login } from './Login'
 import { Shopping } from './Shopping'
+import { Mobile } from './Mobile'
+import { Details } from './Details'
 
 export function Routing(){
     return(
@@ -9,12 +11,14 @@ export function Routing(){
 
              <header className='p-2 text-center border border-1'>
                 <h1>Shopping</h1>
-                <nav>
+                <nav style={{backgroundColor:"black",color:'white', height:'60px'}}>
                     <span className='mx-4'><Link to="/" >Home</Link></span>
-                    <span className='mx-4'><Link to="mobile">Mobile</Link></span>
+                    <span className='mx-4'><Link to="mobile/google">Google</Link></span>
+                    <span className='mx-4'><Link to="mobile/iphone">Iphone</Link></span>
+                    <span className='mx-4'><Link to="details/">Details</Link></span>
                     <span className='mx-4'><Link to="shopping">shopping</Link></span>
                     <span className='mx-4'><Link to="login">Login</Link></span>
-                    <span className='mx-4'><Link to="emi">Emi Calculator</Link></span>
+                    <span className='mx-4'><Link to="notfound">Not Found</Link></span>
                 </nav>
              </header>
 
@@ -22,11 +26,13 @@ export function Routing(){
                 <Routes>
                     <Route path='/' element={ <div> <h5>Shoppig Home</h5> <p>Women Fashion | Kids </p>  </div> } />
                     <Route path="shopping" element={<Shopping/>} />
+                    <Route path='mobile/:category' element={<Mobile/>} />
+                    <Route path='details/:id/:name/:price/:stock' element={<Details/>}/>
                     <Route path='login' element={<Login/>}/>
+                    <Route path="notfound" element={ <div><h1>Nahi mila kya bhaiya</h1></div> }/>
                 </Routes>
              </section>
-
-              
+          
            </BrowserRouter>
         </div>
     )
