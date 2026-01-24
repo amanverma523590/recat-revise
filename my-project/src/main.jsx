@@ -1,11 +1,11 @@
-import { StrictMode } from 'react'
+import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Routing } from './Routing/Routing';
+import { App } from './Rourter/Router';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <Routing/>
-  </StrictMode>
+  <BrowserRouter>
+   <App/>
+  </BrowserRouter>
 )
