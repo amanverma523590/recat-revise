@@ -7,7 +7,6 @@ import { Counter } from './Prac/Counter';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <Prac/>
      <Counter/>
   </StrictMode>
    
