@@ -60,21 +60,67 @@
 
 
 
-import { Wraper } from "./Wrapper";
+// import { Wraper } from "./Wrapper";
+// export function Parent(){
+
+
+//     return(
+//         <div>
+//             <h1>I am Parent</h1>
+//             <Wraper color="red">
+//                 <h1>hii</h1>
+//             </Wraper>
+//             <Wraper color="orange">
+//                 <h1>bye</h1>
+//             </Wraper>
+//         </div>
+//     )
+// }
+// import { useState } from "react";
+// import { Chiild } from "../Prac/Counter";
+
+// export function Parent(){
+
+//    const[name,setName] = useState('Aman')
+//    const[age,setAge] = useState(26)
+
+    // let arr = [10,'aman',true,25]
+    // let isOnline = false;
+    // let follow = false;
+
+    // let userObj = {
+    //     name : 'aman',
+    //     age : 26,
+    //     address : {
+    //         city : 'banglore',
+    //         pin : 560091
+    //     }
+    // }
+    
+//     const[name,setName] = useState('aman');
+
+//     function handleChangeClick(){
+//         setName(prevName=> 
+//             prevName==="aman" ? "sanam" : "aman"
+//         )
+//     }
+
+//     return(
+//         <div>
+//             <h1>I am Parent</h1>
+//             <button onClick={handleChangeClick} className="btn btn-danger">Click</button>
+//             <hr />
+//             <Chiild name={name}/>
+//         </div>
+//     )
+// }
+import { Wraper } from "../Prac/Counter"                                                                                    
+
 export function Parent(){
-
-
     return(
         <div>
-            <h1>I am Parent</h1>
-            <Wraper color="red">
-                <h1>hii</h1>
-            </Wraper>
-            <Wraper color="orange">
-                <h1>bye</h1>
-            </Wraper>
+            <h1>Parent compo</h1>
+            <Wraper text={<h3 className="text-danger">Red Textt</h3>} />
         </div>
     )
 }
-
-
