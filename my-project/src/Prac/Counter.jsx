@@ -133,37 +133,79 @@
 
 // ▶️Handling Checkboxes in form  // as data is not in string form
 
+// import { useState } from "react"
+
+// export function Check(){
+
+//     const[skills,setSkills] = useState([]);
+
+//     function handleSkills(e){
+//         console.log(e.target.value,e.target.checked);
+//         if(e.target.checked){
+//             setSkills([...skills,e.target.value])
+//         }
+//         else{
+//             setSkills(skills.filter((item)=>
+//                 item!=e.target.value
+//             ))
+//         }
+//     }
+
+//     return(
+//         <div>
+//             <h1>Handling checkboxes</h1>
+//             <input type="Checkbox" id="php" value="php" onChange={handleSkills} />
+//             <label htmlFor="php">PHP</label><br />
+//             <input type="Checkbox" id="js" value="js"onChange={handleSkills}/>
+//             <label htmlFor="js">Javascript</label><br />
+//             <input type="Checkbox" id="node" value="node" onChange={handleSkills}/>
+//             <label htmlFor="node">Node</label><br />
+//             <input type="Checkbox" id="java" value="java" onChange={handleSkills}/>
+//             <label htmlFor="java">Java</label><br />
+            
+//             <h4>{skills.toString()}</h4>
+//         </div>
+//     )
+// }
+
+// ▶️Handling Radio button and dropdown
+
 import { useState } from "react"
 
-export function Check(){
+export function Handle(){
 
-    const[skills,setSkills] = useState([]);
+    const[gender,setGender] = useState('male');
 
-    function handleSkills(e){
-        console.log(e.target.value,e.target.checked);
-        if(e.target.checked){
-            setSkills([...skills,e.target.value])
-        }
-        else{
-            setSkills(skills.filter((item)=>
-                item!=e.target.value
-            ))
-        }
+    const[city,setCity] = useState('gurugram')
+
+    function handleGenderChange(e){
+        setGender(e.target.value);
+    }
+    function handleCityChange(e){
+        setCity(e.target.value)
     }
 
     return(
         <div>
-            <h1>Handling checkboxes</h1>
-            <input type="Checkbox" id="php" value="php" onChange={handleSkills} />
-            <label htmlFor="php">PHP</label><br />
-            <input type="Checkbox" id="js" value="js"onChange={handleSkills}/>
-            <label htmlFor="js">Javascript</label><br />
-            <input type="Checkbox" id="node" value="node" onChange={handleSkills}/>
-            <label htmlFor="node">Node</label><br />
-            <input type="Checkbox" id="java" value="java" onChange={handleSkills}/>
-            <label htmlFor="java">Java</label><br />
-            
-            <h4>{skills.toString()}</h4>
+            <h1>Handle Radio button</h1>
+            <h5>Select Gender</h5>
+            <input type="radio" name='gender' id='male' onChange={handleGenderChange} value="male" checked={gender=='male'}/>
+            <label htmlFor="male">Male</label> <br />
+            <input type="radio" name="gender" id="female" onChange={handleGenderChange} value="female" checked={gender=='female'} />
+            <label htmlFor="female">Female</label>
+            <p>selected gender {gender}</p>
+            <hr />
+            <hr />
+            <br />
+
+
+            <h4>Please select city</h4>
+            <select defaultValue={'gurugram'} onChange={handleCityChange}>
+                <option value={'noida'}>Noida</option>
+                <option value={'bangalore'}>Bangalore</option>
+                <option value={'gurugram'}>Gurugram</option>
+            </select>
+            <h2>{city}</h2>
         </div>
     )
 }
