@@ -1,8 +1,6 @@
 // import { useState } from "react"
 
-
 // import { useState } from "react"
-
 
 // export function Counter(){
 
@@ -33,7 +31,7 @@
 
 //     return(
 //         <div>
-            
+
 //             {display?<h1>Aman Verma</h1>:<h1>Nope</h1>}
 //             <button className="btn btn-danger" onClick={handleClick}>Toogle button</button>
 
@@ -112,7 +110,6 @@
 //     function handlePassword(e){
 //         setPassword(e.target.value);
 //     }
-    
 
 //     return(
 //         <div>
@@ -120,14 +117,13 @@
 //             Name : <input type="text" onChange={handleChange} placeholder="Enter name" value={data}/> <br /> <br />
 //             Address: <input type="text" onChange={handleAddress} placeholder="address" value={addres}/> <br /> <br />
 //             Password: <input type="password" placeholder="enter password" value={password} onChange={handlePassword}/>
-//             <h4>{data}</h4> 
-//             <h4>{addres}</h4> 
-//             <h4>{password}</h4> 
+//             <h4>{data}</h4>
+//             <h4>{addres}</h4>
+//             <h4>{password}</h4>
 //             <button className="btn btn-success" onClick={handleClear}>Clear</button>
 //         </div>
 //     )
 // }
-
 
 // ******------------------------------------------------
 
@@ -162,7 +158,7 @@
 //             <label htmlFor="node">Node</label><br />
 //             <input type="Checkbox" id="java" value="java" onChange={handleSkills}/>
 //             <label htmlFor="java">Java</label><br />
-            
+
 //             <h4>{skills.toString()}</h4>
 //         </div>
 //     )
@@ -170,42 +166,138 @@
 
 // ▶️Handling Radio button and dropdown
 
-import { useState } from "react"
+// import { useState } from "react"
 
-export function Handle(){
+// export function Handle(){
 
-    const[gender,setGender] = useState('male');
+//     const[gender,setGender] = useState('male');
 
-    const[city,setCity] = useState('gurugram')
+//     const[city,setCity] = useState('gurugram')
 
-    function handleGenderChange(e){
-        setGender(e.target.value);
-    }
-    function handleCityChange(e){
-        setCity(e.target.value)
-    }
+//     function handleGenderChange(e){
+//         setGender(e.target.value);
+//     }
+//     function handleCityChange(e){
+//         setCity(e.target.value)
+//     }
 
-    return(
-        <div>
-            <h1>Handle Radio button</h1>
-            <h5>Select Gender</h5>
-            <input type="radio" name='gender' id='male' onChange={handleGenderChange} value="male" checked={gender=='male'}/>
-            <label htmlFor="male">Male</label> <br />
-            <input type="radio" name="gender" id="female" onChange={handleGenderChange} value="female" checked={gender=='female'} />
-            <label htmlFor="female">Female</label>
-            <p>selected gender {gender}</p>
-            <hr />
-            <hr />
-            <br />
+//     return(
+//         <div>
+//             <h1>Handle Radio button</h1>
+//             <h5>Select Gender</h5>
+//             <input type="radio" name='gender' id='male' onChange={handleGenderChange} value="male" checked={gender=='male'}/>
+//             <label htmlFor="male">Male</label> <br />
+//             <input type="radio" name="gender" id="female" onChange={handleGenderChange} value="female" checked={gender=='female'} />
+//             <label htmlFor="female">Female</label>
+//             <p>selected gender {gender}</p>
+//             <hr />
+//             <hr />
+//             <br />
+
+//             <h4>Please select city</h4>
+//             <select defaultValue={'gurugram'} onChange={handleCityChange}>
+//                 <option value={'noida'}>Noida</option>
+//                 <option value={'bangalore'}>Bangalore</option>
+//                 <option value={'gurugram'}>Gurugram</option>
+//             </select>
+//             <h2>{city}</h2>
+//         </div>
+//     )
+// }
+
+// ▶️Looping in  JSX
+
+// import { useState } from "react"
+// export function Loop(){
+
+//     let name = ['Aman','Sanam','Sahil','Niyaj','Raj','Sahabaz'];
+
+//     let userName = [
+//         {
+//           Name : 'Aman',
+//           Age : 26,
+//           City : 'Nepalgunj'
+//         },
+//         {
+//           Name : 'Sahil',
+//           Age : 24,
+//           City : 'Birgunj'
+//         },
+//         {
+//           Name : 'Aman',
+//           Age : 32,
+//           City : 'Lalitpur'
+//         },
+// ]
+
+//     return(
+//         <div>
+//             <h1>Loop in JSX</h1>
+//             <ul style={{listStyle:'none'}}>
+//               {
+//                 name.map((item,index)=>(
+//                     <li key={index}>{item}</li>
+//                 ))
+//               }
+//             </ul>
+//             <hr /> <br /> <br />
+
+//               <table className="table table-bordered">
+
+//                 <thead >
+//                     <tr className="text-danger">
+//                        <th>Name</th>
+//                        <th>Age</th>
+//                        <th>City</th>
+//                     </tr>
+//                 </thead>
+
+//                 <tbody>
+//                     {userName.map((user,index)=> (
+//                         <tr key={index}>
+//                             <td>{user.Name}</td>
+//                             <td>{user.Age}</td>
+//                             <td>{user.City}</td>
+//                         </tr>
+//                     ) )}
+//                 </tbody>
+//               </table>
+
+//         </div>
+//     )
+// }
 
 
-            <h4>Please select city</h4>
-            <select defaultValue={'gurugram'} onChange={handleCityChange}>
-                <option value={'noida'}>Noida</option>
-                <option value={'bangalore'}>Bangalore</option>
-                <option value={'gurugram'}>Gurugram</option>
-            </select>
-            <h2>{city}</h2>
-        </div>
-    )
-}
+// import { User } from "./User";
+// export function Loop() {
+//   let userName = [
+//     {
+//       Name: "Aman",
+//       Age: 26,
+//       City: "Nepalgunj",
+//     },
+//     {
+//       Name: "Sahil",
+//       Age: 24,
+//       City: "Birgunj",
+//     },
+//     {
+//       Name: "Aman",
+//       Age: 32,
+//       City: "Lalitpur",
+//     },
+//   ];
+
+//   return(
+//     <div>
+//         <h1>Reusable Component</h1>
+//         {
+//             userName.map((name,index)=>(
+//                 <div key={index} style={{border:'3px solid green',margin:'10px',width:'300px',borderRadius:'10px'}}>
+//                     <User data={name}/>
+//                 </div>
+//             ))
+//         }
+//     </div>
+//   );
+// }
